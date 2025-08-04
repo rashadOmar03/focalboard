@@ -9,18 +9,15 @@ ADD webapp/ /webapp
 RUN CPPFLAGS="-DPNG_ARM_NEON_OPT=0" npm install --no-optional && \
     npm run pack
 
-### Go build
-FROM golang:1.22 AS gobuild
-
+# Build Focalboard on Debian Bullseye (glibc 2.31)
+FROM golang:1.22-bullseye AS builder
 
 WORKDIR /go/src/focalboard
-ADD . /go/src/focalboard
+COPY . .
 
-# Get target architecture 
-ARG TARGETOS
-ARG TARGETARCH  
+# Build the server with glibc 2.31 compatibility
+RUN CGO_ENABLED=1 GOOS=linux GOARCH=amd64 make server-docker os=linux arch=amd64
 
-RUN EXCLUDE_PLUGIN=true EXCLUDE_SERVER=true EXCLUDE_ENTERPRISE=true make server-docker os=${TARGETOS} arch=${TARGETARCH}
 
 ## Final image
 FROM debian:buster-slim@sha256:5b0b1a9a54651bbe9d4d3ee96bbda2b2a1da3d2fa198ddebbced46dfdca7f216
