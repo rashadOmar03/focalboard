@@ -28,9 +28,10 @@ RUN chown -R nobody:nogroup /opt/focalboard
 WORKDIR /opt/focalboard
 
 COPY --from=nodebuild --chown=nobody:nogroup /webapp/pack pack/
-COPY --from=gobuild --chown=nobody:nogroup /go/src/focalboard/bin/docker/focalboard-server bin/
-COPY --from=gobuild --chown=nobody:nogroup /go/src/focalboard/LICENSE.txt LICENSE.txt
-COPY --from=gobuild --chown=nobody:nogroup /go/src/focalboard/docker/server_config.json config.json
+COPY --from=builder --chown=nobody:nogroup /go/src/focalboard/bin/docker/focalboard-server bin/
+COPY --from=builder --chown=nobody:nogroup /go/src/focalboard/LICENSE.txt LICENSE.txt
+COPY --from=builder --chown=nobody:nogroup /go/src/focalboard/docker/server_config.json config.json
+
 
 USER nobody
 
