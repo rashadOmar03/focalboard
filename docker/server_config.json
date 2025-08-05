@@ -2,7 +2,7 @@
   "serverRoot": "http://localhost:8000",
   "port": 8000,
   "dbtype": "postgres",
-  "dbconfig": "postgres://omar_rashad:NHtnkv89bSyq3OVytHR5ORxG7fLjDNr5@dpg-d28vhk2li9vc739b877g-a.oregon-postgres.render.com:5432/focalboard_r9if?sslmode=disable",
+ "dbconfig": "postgres://omar_rashad:NHtnkv89bSyq3OVytHR5ORxG7fLjDNr5@dpg-d28vhk2li9vc739b877g-a.oregon-postgres.render.com:5432/focalboard_r9if?sslmode=require",
   "useSSL": false,
   "webpath": "./pack",
   "filespath": "./data/files",
