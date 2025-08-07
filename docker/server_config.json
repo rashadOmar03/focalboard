@@ -1,9 +1,8 @@
 {
   "serverRoot": "http://localhost:8000",
   "port": 8000,
-  "dbtype": "sqlite3",
-  "dbconfig": "./data/focalboard.db",
-  "postgres_dbconfig": "dbname=focalboard sslmode=disable",
+  "dbtype": "postgres",
+  "dbconfig": "postgresql://postgres:1928374655Mohamed@db.wicbtvrxxgrfaochjqyj.supabase.co:5432/postgres",
   "useSSL": false,
   "webpath": "./pack",
   "filespath": "./data/files",
