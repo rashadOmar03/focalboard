@@ -3,7 +3,7 @@
   "port": 8000,
   "dbtype": "postgres",
   "dbconfig": "postgresql://postgres:1928374655Mohamed@db.wicbtvrxxgrfaochjqyj.supabase.co:5432/postgres",
-  "useSSL": false,
+  "useSSL": true,
   "webpath": "./pack",
   "filespath": "./data/files",
   "telemetry": true,
